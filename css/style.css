@@ -1,1 +1,421 @@
+/* ============================================
+   노동법 다이어리 - 공통 스타일시트
+   v3.2 (2026.07) - 다크모드 대비 변수 정리
+   v3.1 (2026.03) - 계산기 페이지 스타일 분리했다가 다시 합침
+   v2.0 (2025.11) - 전면 리디자인 (종이 질감 컨셉)
+   ============================================ */
 
+:root {
+  --bg: #faf8f4;
+  --paper: #ffffff;
+  --ink: #2c2a26;
+  --ink-soft: #5c574e;
+  --ink-faint: #8a8478;
+  --accent: #1a5c4e;        /* 짙은 초록 - 메인 */
+  --accent-soft: #e3efe9;
+  --accent2: #b5541c;       /* 벽돌색 - 강조 */
+  --accent2-soft: #f9ece2;
+  --blue: #2b5d8a;
+  --blue-soft: #e7f0f8;
+  --line: #e5e0d6;
+  --warn-bg: #fdf3d7;
+  --warn-border: #e8c96a;
+  --radius: 10px;
+  --shadow: 0 2px 12px rgba(60, 50, 30, 0.07);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.75;
+  font-size: 16.5px;
+  word-break: keep-all;
+}
+
+/* ---------- 헤더 & 네비 ---------- */
+.site-header {
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--accent);
+  text-decoration: none;
+  padding: 14px 0;
+  letter-spacing: -0.5px;
+}
+.logo .logo-sub {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--ink-faint);
+  display: block;
+  letter-spacing: 0;
+  margin-top: -4px;
+}
+
+.main-nav { display: flex; gap: 2px; flex-wrap: wrap; }
+
+.main-nav a {
+  text-decoration: none;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  font-weight: 600;
+  padding: 18px 12px;
+  border-bottom: 3px solid transparent;
+  transition: color .15s, border-color .15s;
+}
+.main-nav a:hover { color: var(--accent); }
+.main-nav a.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+/* ---------- 레이아웃 ---------- */
+.container { max-width: 1000px; margin: 0 auto; padding: 36px 20px 80px; }
+.container.narrow { max-width: 800px; }
+
+/* ---------- 히어로 (홈) ---------- */
+.hero {
+  background: linear-gradient(135deg, var(--accent) 0%, #12463b 100%);
+  color: #f2f7f5;
+  border-radius: 14px;
+  padding: 52px 44px;
+  margin-bottom: 40px;
+}
+.hero h1 { font-size: 2.1rem; line-height: 1.35; letter-spacing: -1px; margin-bottom: 14px; }
+.hero p { font-size: 1.05rem; color: #cfe2db; max-width: 560px; }
+.hero .hero-badge {
+  display: inline-block;
+  background: rgba(255,255,255,.15);
+  border: 1px solid rgba(255,255,255,.3);
+  border-radius: 999px;
+  padding: 4px 14px;
+  font-size: 0.8rem;
+  margin-bottom: 18px;
+}
+
+/* ---------- 카드 그리드 ---------- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 18px;
+  margin: 24px 0;
+}
+
+.topic-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 26px 24px;
+  text-decoration: none;
+  color: var(--ink);
+  box-shadow: var(--shadow);
+  transition: transform .15s, box-shadow .15s;
+  display: block;
+}
+.topic-card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(60,50,30,.12); }
+.topic-card .card-icon { font-size: 1.7rem; margin-bottom: 10px; display: block; }
+.topic-card h3 { font-size: 1.08rem; margin-bottom: 8px; color: var(--accent); }
+.topic-card p { font-size: 0.88rem; color: var(--ink-soft); line-height: 1.6; }
+.topic-card .card-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-radius: 4px;
+  padding: 2px 8px;
+  margin-top: 12px;
+  font-weight: 700;
+}
+
+/* ---------- 본문 타이포 ---------- */
+.page-title { font-size: 1.85rem; letter-spacing: -0.8px; margin-bottom: 6px; }
+.page-desc { color: var(--ink-soft); margin-bottom: 34px; font-size: 0.98rem; }
+
+article h2 {
+  font-size: 1.42rem;
+  margin: 52px 0 16px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--accent);
+  letter-spacing: -0.5px;
+}
+article h2:first-of-type { margin-top: 10px; }
+article h3 { font-size: 1.12rem; margin: 34px 0 10px; color: var(--accent); }
+article p { margin-bottom: 14px; }
+article ul, article ol { margin: 0 0 16px 22px; }
+article li { margin-bottom: 6px; }
+
+/* ---------- 콜아웃 박스 ---------- */
+.box {
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  margin: 20px 0;
+  font-size: 0.95rem;
+}
+.box .box-label {
+  font-weight: 800;
+  font-size: 0.85rem;
+  display: block;
+  margin-bottom: 8px;
+  letter-spacing: 0.3px;
+}
+.box p:last-child { margin-bottom: 0; }
+
+.box-easy { background: var(--accent-soft); border-left: 5px solid var(--accent); }
+.box-easy .box-label { color: var(--accent); }
+
+.box-pro { background: var(--blue-soft); border-left: 5px solid var(--blue); }
+.box-pro .box-label { color: var(--blue); }
+
+.box-warn { background: var(--warn-bg); border-left: 5px solid var(--warn-border); }
+.box-warn .box-label { color: #8a6d1a; }
+
+.box-case { background: var(--accent2-soft); border-left: 5px solid var(--accent2); }
+.box-case .box-label { color: var(--accent2); }
+
+/* ---------- 조문 인용 ---------- */
+.law-quote {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 22px 26px;
+  margin: 20px 0;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  position: relative;
+}
+.law-quote::before {
+  content: "法";
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  font-size: 1.6rem;
+  color: var(--line);
+  font-weight: 700;
+}
+.law-quote .law-title { font-weight: 800; color: var(--ink); display: block; margin-bottom: 8px; }
+
+/* ---------- 접기/펼치기 (전문가용 심화) ---------- */
+details.deep {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  margin: 18px 0;
+  overflow: hidden;
+}
+details.deep summary {
+  cursor: pointer;
+  padding: 15px 22px;
+  font-weight: 700;
+  color: var(--blue);
+  font-size: 0.94rem;
+  list-style: none;
+  user-select: none;
+}
+details.deep summary::before { content: "▸ "; }
+details.deep[open] summary::before { content: "▾ "; }
+details.deep summary:hover { background: var(--blue-soft); }
+details.deep .deep-body { padding: 4px 24px 20px; font-size: 0.93rem; color: var(--ink-soft); }
+
+/* ---------- 표 ---------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background: var(--paper);
+  font-size: 0.9rem;
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+th {
+  background: var(--accent);
+  color: #fff;
+  padding: 11px 14px;
+  text-align: left;
+  font-size: 0.86rem;
+}
+td { padding: 11px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+tr:last-child td { border-bottom: none; }
+tr:nth-child(even) td { background: #fcfbf8; }
+
+/* ---------- 계산기 ---------- */
+.calc-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 30px;
+  margin: 24px 0;
+  box-shadow: var(--shadow);
+}
+.calc-card h3 { margin-top: 0 !important; }
+.calc-row { display: flex; gap: 14px; flex-wrap: wrap; margin: 14px 0; }
+.calc-field { flex: 1; min-width: 180px; }
+.calc-field label { display: block; font-size: 0.85rem; font-weight: 700; color: var(--ink-soft); margin-bottom: 6px; }
+.calc-field input, .calc-field select {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid var(--line);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  background: var(--bg);
+}
+.calc-field input:focus, .calc-field select:focus { outline: none; border-color: var(--accent); }
+.calc-btn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 28px;
+  font-size: 0.98rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  margin-top: 6px;
+}
+.calc-btn:hover { background: #14493e; }
+.calc-result {
+  margin-top: 18px;
+  padding: 18px 22px;
+  background: var(--accent-soft);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  display: none;
+}
+.calc-result.show { display: block; }
+.calc-result .big { font-size: 1.5rem; font-weight: 800; color: var(--accent); }
+.calc-note { font-size: 0.8rem; color: var(--ink-faint); margin-top: 10px; }
+
+/* ---------- FAQ ---------- */
+details.faq {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  margin-bottom: 12px;
+}
+details.faq summary {
+  cursor: pointer;
+  padding: 18px 22px;
+  font-weight: 700;
+  font-size: 0.98rem;
+  list-style: none;
+}
+details.faq summary::before { content: "Q. "; color: var(--accent2); font-weight: 800; }
+details.faq[open] { border-color: var(--accent); }
+details.faq .faq-a {
+  font-size: 0.93rem;
+  color: var(--ink-soft);
+  border-top: 1px dashed var(--line);
+  padding-top: 14px;
+  margin: 0 22px 20px;
+}
+details.faq .faq-a::before { content: "A. "; color: var(--accent); font-weight: 800; }
+
+/* ---------- 업데이트 로그 / 메모 ---------- */
+.update-log {
+  background: var(--paper);
+  border: 1px dashed var(--ink-faint);
+  border-radius: var(--radius);
+  padding: 22px 26px;
+  margin: 40px 0 0;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+.update-log h4 { font-size: 0.9rem; margin-bottom: 10px; color: var(--ink); }
+.update-log li { margin-bottom: 4px; }
+.update-log ul { margin-left: 20px; }
+.update-log .log-date { color: var(--accent2); font-weight: 700; font-variant-numeric: tabular-nums; }
+
+.author-note {
+  font-size: 0.86rem;
+  color: var(--ink-faint);
+  font-style: italic;
+  margin: 24px 0;
+  padding-left: 16px;
+  border-left: 3px solid var(--line);
+}
+
+/* ---------- 페이지 하단 이전/다음 ---------- */
+.page-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 60px;
+  flex-wrap: wrap;
+}
+.page-nav a {
+  text-decoration: none;
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 0.92rem;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 12px 20px;
+}
+.page-nav a:hover { background: var(--accent-soft); }
+
+/* ---------- 푸터 ---------- */
+.site-footer {
+  border-top: 1px solid var(--line);
+  background: var(--paper);
+  padding: 34px 20px;
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--ink-faint);
+  line-height: 1.9;
+}
+.site-footer a { color: var(--accent); }
+
+/* ---------- 기타 ---------- */
+.badge-new {
+  display: inline-block;
+  background: var(--accent2);
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 800;
+  border-radius: 4px;
+  padding: 1px 7px;
+  vertical-align: middle;
+  margin-left: 6px;
+}
+.toc {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px 26px;
+  margin-bottom: 30px;
+  font-size: 0.9rem;
+}
+.toc strong { display: block; margin-bottom: 8px; font-size: 0.85rem; color: var(--ink-faint); }
+.toc a { color: var(--accent); text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+.toc li { margin-bottom: 3px; }
+.toc ul { margin-left: 20px; }
+
+mark { background: #ffe9a8; padding: 0 3px; border-radius: 3px; }
+
+@media (max-width: 720px) {
+  .hero { padding: 36px 26px; }
+  .hero h1 { font-size: 1.55rem; }
+  .main-nav a { padding: 12px 9px; font-size: 0.85rem; }
+  body { font-size: 15.5px; }
+}
