@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="2026년 주 4.5일제·주 4일제 완전 정리. 경기도 시범사업, 임금 삭감 없는 근로시간 단축, 포괄임금제 오남용, 근로자·사업주가 알아야 할 모든 것.">
+<title>주 4.5일제와 주 4일제 완전 정리 (2026) | 노동법 다이어리</title>
+<link rel="canonical" href="https://nodonglab.com/work-4days.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="주 4.5일제와 주 4일제 완전 정리 (2026) | 노동법 다이어리">
+<meta property="og:description" content="주 4.5일제 도입 논의의 현주소. 시범사업, 법제화 방향, 임금·복지 영향, 기업 도입 사례까지.">
+<meta property="og:url" content="https://nodonglab.com/work-4days.html">
+<meta property="og:site_name" content="노동법 다이어리">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">노동법 다이어리<span class="logo-sub">누구나 이해하는 근로기준법</span></a>
+    <button class="nav-toggle" aria-label="메뉴 열기" onclick="document.querySelector('.main-nav').classList.toggle('open')">☰</button>
+    <nav class="main-nav">
+      <a href="index.html">홈</a>
+      <a href="work-hours.html">근로시간</a>
+      <a href="wages.html">임금</a>
+      <a href="leave.html">휴가·연차</a>
+      <a href="dismissal.html">해고·징계</a>
+      <a href="contract.html">근로계약</a>
+      <a href="support-worker.html" class="nav-new">지원금(근로자)</a>
+      <a href="support-employer.html" class="nav-new">지원금(사업주)</a>
+      <a href="ai-labor.html" class="nav-new">AI·노동</a>
+      <a href="work-4days.html" class="active">주4.5일</a>
+      <a href="workplace-harassment.html">직장 괴롭힘</a>
+      <a href="calculator.html">계산기</a>
+      <a href="faq.html">FAQ</a>
+      <a href="cases.html">판례·사례</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container narrow">
+  <h1 class="page-title">📆 주 4.5일제와 주 4일제 <span class="badge-hot">HOT</span></h1>
+  <p class="page-desc">임금 삭감 없이 근로시간을 줄일 수 있을까 — 2026년 논쟁의 최전선 · 마지막 손질 2026. 7. 12.</p>
+
+  <div class="box box-easy">
+    <span class="box-label">🟢 이 페이지가 하는 일</span>
+    <p>정부는 <strong>주 4.5일제 입법</strong>을 2026년 내 추진 중이고, 경기도는 이미 <strong>시범사업</strong>을 시작했습니다. 이 페이지에서는 "주 4일 vs 주 4.5일" 두 모델의 차이, 임금·연장근로·주휴수당 처리, 도입 사례를 정리합니다.</p>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <span class="stat-value">40시간</span>
+      <span class="stat-label">현행 법정 근로시간</span>
+      <span class="stat-sub">주 5일 × 8시간</span>
+    </div>
+    <div class="stat-card orange">
+      <span class="stat-value">36시간</span>
+      <span class="stat-label">주 4.5일제 예상</span>
+      <span class="stat-sub">4일×8h + 1일×4h</span>
+    </div>
+    <div class="stat-card blue">
+      <span class="stat-value">32시간</span>
+      <span class="stat-label">주 4일제</span>
+      <span class="stat-sub">4일 × 8시간</span>
+    </div>
+    <div class="stat-card purple">
+      <span class="stat-value">30+</span>
+      <span class="stat-label">경기도 시범 참여</span>
+      <span class="stat-sub">2026년 상반기 기준</span>
+    </div>
+  </div>
+
+  <div class="toc">
+    <strong>이 페이지의 내용</strong>
+    <ul>
+      <li><a href="#current">1. 현행 법정 근로시간 복습</a></li>
+      <li><a href="#models">2. 주 4일제 vs 주 4.5일제 — 무엇이 다른가</a></li>
+      <li><a href="#gyeonggi">3. 경기도 주 4.5일제 시범사업 (2026)</a></li>
+      <li><a href="#legislation">4. 국회 입법 흐름</a></li>
+      <li><a href="#wages">5. 임금·주휴수당·연장근로는 어떻게?</a></li>
+      <li><a href="#cases">6. 국내외 도입 사례</a></li>
+      <li><a href="#poge">7. 포괄임금제 오남용 문제</a></li>
+      <li><a href="#howto">8. 우리 회사에 도입한다면 — 절차</a></li>
+    </ul>
+  </div>
+
+  <article>
+
+    <h2 id="current">1. 현행 법정 근로시간 복습</h2>
+
+    <div class="law-quote">
+      <span class="law-title">근로기준법 제50조 (근로시간)</span>
+      ① 1주간의 근로시간은 휴게시간을 제외하고 <strong>40시간</strong>을 초과할 수 없다.<br>
+      ② 1일의 근로시간은 휴게시간을 제외하고 <strong>8시간</strong>을 초과할 수 없다.
+    </div>
+
+    <div class="box box-easy">
+      <span class="box-label">🟢 쉽게 말하면</span>
+      <p>현행 법정근로시간은 <strong>주 40시간 · 1일 8시간</strong>. 노사합의로 <strong>주 12시간</strong>까지 연장근로 가능하므로 최대 <mark>주 52시간</mark>. "주 4.5일제"란 이 40시간을 4.5일에 몰아 쓰거나, 아예 <strong>36시간으로 줄이자</strong>는 두 가지 방향이 있습니다.</p>
+    </div>
+
+    <h2 id="models">2. 주 4일제 vs 주 4.5일제 — 무엇이 다른가</h2>
+
+    <table>
+      <thead>
+        <tr><th>구분</th><th>주 5일제 (현행)</th><th>주 4.5일제 A안</th><th>주 4.5일제 B안</th><th>주 4일제</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>총 근로시간</td><td>40시간</td><td><strong>40시간 (압축)</strong></td><td><strong>36시간 (단축)</strong></td><td>32시간</td></tr>
+        <tr><td>1일 근로시간</td><td>8시간</td><td>9시간×4일 + 4시간×1일</td><td>8시간×4일 + 4시간×1일</td><td>8시간×4일</td></tr>
+        <tr><td>임금</td><td>기준</td><td>동일</td><td><mark>동일 (삭감 없음)</mark></td><td>동일 또는 일부 조정</td></tr>
+        <tr><td>연장근로 가산</td><td>주 40h 초과</td><td>1일 8h 초과분에 발생</td><td>없음</td><td>없음</td></tr>
+        <tr><td>주휴수당</td><td>포함</td><td>포함</td><td>포함</td><td>포함</td></tr>
+        <tr><td>법 개정 필요</td><td>-</td><td>불필요 (탄력근로 활용)</td><td>필요 (제50조 개정)</td><td>필요</td></tr>
+      </tbody>
+    </table>
+
+    <div class="box box-pro">
+      <span class="box-label">🔵 실무 포인트</span>
+      <ul>
+        <li><strong>A안(압축형)</strong>은 <mark>이미 도입 가능</mark>. 근로기준법 제51조 탄력적 근로시간제(단위기간 2주~6개월)를 활용하면 됩니다. 단, 1일 12시간·주 52시간 한도를 지켜야 합니다.</li>
+        <li><strong>B안(단축형)</strong>은 <strong>임금 삭감 없이 근로시간만 줄이는 방식</strong>. 법 개정이 필요하지만, 노사 합의로 취업규칙만 바꾸면 개별 회사는 도입 가능합니다.</li>
+        <li>정부가 추진하는 것은 대체로 <strong>B안</strong>. "임금 삭감 없이"가 핵심 문구입니다.</li>
+      </ul>
+    </div>
+
+    <h2 id="gyeonggi">3. 경기도 주 4.5일제 시범사업 (2026)</h2>
+
+    <div class="support-card color-purple">
+      <div class="sc-head">
+        <span class="sc-icon">🏛️</span>
+        <div>
+          <h3>경기도 주 4.5일제 시범사업</h3>
+          <p class="sc-sub">기업 도입 시 인건비·컨설팅 지원</p>
+        </div>
+        <span class="sc-amount">최대 5,000만원</span>
+      </div>
+      <div class="sc-body">
+        <p>경기도는 <strong>임금 삭감 없는 근로시간 단축</strong> 모델을 확산시키기 위해 2026년부터 시범사업을 시작했습니다. 참여 기업에는 <strong>근로시간 단축 정착 컨설팅</strong>과 인건비를 지원합니다.</p>
+        <div class="sc-meta">
+          <div><strong>참여대상</strong>경기도 소재 중소기업</div>
+          <div><strong>지원기간</strong>1~2년</div>
+          <div><strong>지원내용</strong>컨설팅 + 인건비 보조</div>
+          <div><strong>선정규모</strong>2026년 상반기 30개사</div>
+        </div>
+      </div>
+    </div>
+
+    <h2 id="legislation">4. 국회 입법 흐름</h2>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <span class="tl-date">2025.06</span>
+        <h4>제22대 대선 공약 — 여야 모두 근로시간 단축 언급</h4>
+        <p>여당 "주 4.5일제 도입", 야당 "주 4일제 시범".</p>
+      </div>
+      <div class="timeline-item">
+        <span class="tl-date">2025.12</span>
+        <h4>정부 「일하는 방식 개편」 로드맵 발표</h4>
+        <p>근로기준법 제50조 개정 추진안 공개.</p>
+      </div>
+      <div class="timeline-item">
+        <span class="tl-date">2026.03</span>
+        <h4>고용노동부, 「일·생활 균형 촉진법」 초안 마련</h4>
+        <p>연간 근로시간 상한제 검토.</p>
+      </div>
+      <div class="timeline-item">
+        <span class="tl-date">2026.하반기</span>
+        <h4>주 4.5일제 입법 국회 논의 본격화 (예정)</h4>
+        <p>2027~2028년 단계 시행 목표.</p>
+      </div>
+    </div>
+
+    <h2 id="wages">5. 임금·주휴수당·연장근로는 어떻게?</h2>
+
+    <div class="box box-easy">
+      <span class="box-label">🟢 쉽게 말하면</span>
+      <p>가장 큰 쟁점이 <strong>"근로시간은 줄이는데 임금은 그대로?"</strong> 입니다. 정부안의 원칙은 <mark>임금 총액 유지</mark>이지만, 시간당 임금이 상승하면 수당 계산도 달라집니다.</p>
+    </div>
+
+    <table class="table-purple">
+      <thead><tr><th>항목</th><th>현행(주40h·월급 210만원)</th><th>주 36h 단축 후</th></tr></thead>
+      <tbody>
+        <tr><td>월 소정근로시간</td><td>209시간(주휴 포함)</td><td>약 191시간</td></tr>
+        <tr><td>시간당 임금</td><td>약 10,048원</td><td><mark>약 10,995원</mark></td></tr>
+        <tr><td>연장근로 시급</td><td>15,072원</td><td>16,493원</td></tr>
+        <tr><td>주휴수당</td><td>포함(월급제)</td><td>포함(변동 없음)</td></tr>
+      </tbody>
+    </table>
+
+    <div class="box box-warn">
+      <span class="box-label">🟡 주의 — 시급제 알바</span>
+      <p>주 4.5일제 도입 시 <strong>월급제 근로자</strong>는 대체로 임금 손실이 없지만, <strong>시급제·일급제</strong>는 근로시간 감소가 곧 임금 감소가 됩니다. 정부는 <strong>임금감소보전금</strong>을 지원하는 방식으로 이를 완화하려 하지만, 실제 도입 사업장의 노사협상 결과가 관건입니다.</p>
+    </div>
+
+    <h2 id="cases">6. 국내외 도입 사례</h2>
+
+    <div class="card-grid">
+      <div class="topic-card accent-blue" style="cursor:default">
+        <span class="card-icon">🇬🇧</span>
+        <h3>영국</h3>
+        <p>2022년 시범 61개사 · 92%가 유지 결정. 생산성 하락 없음.</p>
+        <span class="card-tag">해외</span>
+      </div>
+      <div class="topic-card accent-purple" style="cursor:default">
+        <span class="card-icon">🇮🇸</span>
+        <h3>아이슬란드</h3>
+        <p>2015~2019 시범 후 노동자의 86%가 4일제 또는 단축권리 확보.</p>
+        <span class="card-tag">해외</span>
+      </div>
+      <div class="topic-card accent-orange" style="cursor:default">
+        <span class="card-icon">🇰🇷</span>
+        <h3>배달의민족(우아한형제들)</h3>
+        <p>2022년부터 주 4.5일제(월 1회 금요일 휴무) 시행.</p>
+        <span class="card-tag">국내 IT</span>
+      </div>
+      <div class="topic-card accent-pink" style="cursor:default">
+        <span class="card-icon">🇰🇷</span>
+        <h3>세브란스병원</h3>
+        <p>2023년 간호사 대상 주 4일제 시범 → 이직률 감소 효과.</p>
+        <span class="card-tag">국내 의료</span>
+      </div>
+      <div class="topic-card accent-gold" style="cursor:default">
+        <span class="card-icon">🇰🇷</span>
+        <h3>SK하이닉스</h3>
+        <p>격주 금요일 휴무제(Happy Friday) 운영 중.</p>
+        <span class="card-tag">국내 대기업</span>
+      </div>
+      <div class="topic-card" style="cursor:default">
+        <span class="card-icon">🌐</span>
+        <h3>4 Day Week Global</h3>
+        <p>국제 인증 프로그램. 100·80·100 원칙(임금100 · 시간80 · 성과100).</p>
+        <span class="card-tag">국제기구</span>
+      </div>
+    </div>
+
+    <h2 id="poge">7. 포괄임금제 오남용 문제</h2>
+
+    <div class="box box-warn">
+      <span class="box-label">🟡 근로시간 단축의 <strong>가장 큰 걸림돌</strong></span>
+      <p>연장·야간·휴일수당을 <strong>월급에 미리 포함</strong>시키는 <mark>포괄임금제</mark>가 만연한 IT·게임·언론업계에서는 아무리 근로시간을 단축해도 <strong>실질 노동시간은 그대로</strong>입니다. 대법원은 이미 여러 차례 <strong>사무직 포괄임금제는 원칙적으로 무효</strong>라고 판시했습니다.</p>
+    </div>
+
+    <div class="law-quote">
+      <span class="law-title">대법원 2010. 5. 13. 선고 2008다6052 판결</span>
+      감시·단속적 근로 등과 같이 <strong>근로시간의 산정이 어려운 경우</strong>가 아니라면, 근로시간의 산정이 가능한 사무직 근로자에 대한 포괄임금제는 <strong>근로기준법에 위반</strong>되어 무효이다.
+    </div>
+
+    <div class="box box-pro">
+      <span class="box-label">🔵 실무 포인트 — 2025.04 시행 오남용 방지 지침</span>
+      <p>고용노동부는 2025년 4월부터 <strong>포괄임금제 오남용 방지 지침</strong>을 시행 중. 실제 연장근로 시간을 초과하는데도 추가수당을 안 준다면 임금체불이 됩니다. <strong>주 4.5일제 도입의 전제조건</strong>은 이 포괄임금제부터 정리하는 것입니다.</p>
+    </div>
+
+    <h2 id="howto">8. 우리 회사에 도입한다면 — 절차</h2>
+
+    <div class="support-card color-blue">
+      <div class="sc-head">
+        <span class="sc-icon">📋</span>
+        <div>
+          <h3>주 4.5일제 도입 절차 (5단계)</h3>
+          <p class="sc-sub">우리 회사만의 방식으로 도입하는 법</p>
+        </div>
+      </div>
+      <div class="sc-body">
+        <ol>
+          <li><strong>업무 분석</strong> — 각 부서·직군의 실제 근로시간과 성수기·비수기 파악.</li>
+          <li><strong>모델 선택</strong> — 압축형(A안)·단축형(B안)·격주형·직군별 선택제 등 결정.</li>
+          <li><strong>노사협의</strong> — 근로자대표(과반수노조 또는 근로자대표) 협의. <mark>불이익 변경</mark> 여지가 있으면 근로자 과반수 동의 필수.</li>
+          <li><strong>취업규칙 개정</strong> — 근로시간·휴게·연차·연장근로 조항 개정 후 고용노동부 신고.</li>
+          <li><strong>시범 운영 → 정착</strong> — 3~6개월 시범 후 문제점 보완. 정부·경기도 지원사업 활용.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="box box-case">
+      <span class="box-label">🟠 자주 하는 실수</span>
+      <ul>
+        <li><strong>취업규칙 개정 없이 "다음 주부터 주 4.5일" 공지만</strong> — 근로시간이 감소하면 노사가 좋아 보이지만, 개별 근로자가 "임금 그대로여야 한다"고 주장할 근거가 됩니다.</li>
+        <li><strong>연장근로가 사실상 존재하는데 계산 없이 시행</strong> — 조기퇴근 원칙만 세우고 실제로는 야근이 계속되면 <mark>임금체불</mark>.</li>
+        <li><strong>일부 직군만 배제</strong> — 합리적 이유 없이 특정 직군만 제외하면 <mark>차별 시비</mark>.</li>
+      </ul>
+    </div>
+
+    <h2>💬 자주 묻는 질문</h2>
+
+    <details class="faq">
+      <summary>주 4.5일제를 도입하면 최저임금 위반이 되나요?</summary>
+      <div class="faq-a">아니오. 임금 총액이 유지되면 시간당 임금은 오히려 상승합니다. 다만 시급제 근로자의 경우 근로시간 감소로 월급이 줄어들 수 있으므로 <strong>임금감소보전 방안</strong>을 반드시 별도로 마련해야 합니다.</div>
+    </details>
+    <details class="faq">
+      <summary>연차휴가는 어떻게 계산하나요?</summary>
+      <div class="faq-a">주 4.5일제에서도 근로기준법 제60조의 연차는 <strong>일수 단위</strong>로 그대로 부여됩니다. 다만 1일 소정근로시간이 줄어들면 <strong>연차수당(연차미사용수당)</strong> 계산 시 통상임금이 달라지므로 유리해집니다.</div>
+    </details>
+    <details class="faq">
+      <summary>주 4일제만 도입한 회사에서 연장근로하면 어떻게 되나요?</summary>
+      <div class="faq-a">주 4일 × 8시간 = 32시간이 소정근로. 32시간을 초과한 시간부터 연장근로수당(50% 가산)이 발생하는 것은 아닙니다. 근로기준법상 연장근로 가산은 <strong>주 40시간 또는 1일 8시간 초과</strong> 기준이므로, 소정 32h → 40h까지는 <mark>가산 없이 통상임금</mark>만 지급합니다. 40h를 넘겨야 50% 가산이 발생합니다.</div>
+    </details>
+
+    <div class="page-nav">
+      <a href="ai-labor.html">← <small>이전</small>AI와 노동법</a>
+      <a href="workplace-harassment.html"><small>다음 →</small>직장 내 괴롭힘 & 감정노동</a>
+    </div>
+
+    <div class="update-log">
+      <h4>📌 업데이트 기록</h4>
+      <ul>
+        <li><span class="log-date">2026.07.12</span> — 페이지 신설, 경기도 시범사업 반영</li>
+      </ul>
+    </div>
+
+    <p class="author-note">
+      ※ 주 4.5일제는 아직 법제화가 완료된 제도가 아닙니다. 개별 기업이 취업규칙 개정으로 도입할 수는 있지만, 세부 요건은 <strong>노무사 상담</strong>을 권장합니다. — 운영자
+    </p>
+
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="index.html">홈</a> · <a href="privacy.html">개인정보처리방침</a> · <a href="mailto:contact@nodonglab.com">문의</a>
+  </div>
+  <div>© 2026 노동법 다이어리 · 본 사이트의 정보는 참고용이며 법률자문을 대체하지 않습니다.</div>
+</footer>
+
+</body>
+</html>

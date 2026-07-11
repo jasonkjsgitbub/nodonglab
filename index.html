@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="대한민국 근로기준법을 누구나 이해할 수 있게 풀어 쓴 해설 사이트. 근로시간, 임금, 연차, 해고, 근로계약부터 계산기와 판례까지.">
+<meta name="description" content="대한민국 근로기준법을 누구나 이해할 수 있게 풀어 쓴 해설 사이트. 근로시간, 임금, 연차, 해고, 근로계약부터 계산기·판례·2026 정부지원금까지.">
 <title>노동법 다이어리 | 누구나 이해하는 근로기준법</title>
 <link rel="canonical" href="https://nodonglab.com/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="노동법 다이어리 | 누구나 이해하는 근로기준법">
-<meta property="og:description" content="대한민국 근로기준법을 누구나 이해할 수 있게 풀어 쓴 해설 사이트. 근로시간, 임금, 연차, 해고, 근로계약부터 계산기와 판례까지.">
+<meta property="og:description" content="대한민국 근로기준법을 누구나 이해할 수 있게 풀어 쓴 해설 사이트. 근로시간, 임금, 연차, 해고, 근로계약부터 계산기·판례·2026 정부지원금까지.">
 <meta property="og:url" content="https://nodonglab.com/">
 <meta property="og:site_name" content="노동법 다이어리">
 <link rel="stylesheet" href="css/style.css">
@@ -16,13 +16,13 @@
      발급받은 ca-pub 번호로 XXXXXXXXXXXXXXXX 를 바꾸고, 이 주석 표시를 지워서 활성화하세요.
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
      ▲ 애드센스 코드 끝 ▲ -->
-
 </head>
 <body>
 
 <header class="site-header">
   <div class="header-inner">
     <a href="index.html" class="logo">노동법 다이어리<span class="logo-sub">누구나 이해하는 근로기준법</span></a>
+    <button class="nav-toggle" aria-label="메뉴 열기" onclick="document.querySelector('.main-nav').classList.toggle('open')">☰</button>
     <nav class="main-nav">
       <a href="index.html" class="active">홈</a>
       <a href="work-hours.html">근로시간</a>
@@ -30,6 +30,11 @@
       <a href="leave.html">휴가·연차</a>
       <a href="dismissal.html">해고·징계</a>
       <a href="contract.html">근로계약</a>
+      <a href="support-worker.html" class="nav-new">지원금(근로자)</a>
+      <a href="support-employer.html" class="nav-new">지원금(사업주)</a>
+      <a href="ai-labor.html" class="nav-new">AI·노동</a>
+      <a href="work-4days.html">주4.5일</a>
+      <a href="workplace-harassment.html">직장 괴롭힘</a>
       <a href="calculator.html">계산기</a>
       <a href="faq.html">FAQ</a>
       <a href="cases.html">판례·사례</a>
@@ -39,16 +44,70 @@
 
 <main class="container">
 
-  <section class="hero">
-    <span class="hero-badge">2026. 7. 기준 최신 개정 반영</span>
+  <section class="hero fade-in">
+    <span class="hero-badge">✨ 2026. 7. 기준 · 정부지원금 & AI·근로시간 신설</span>
     <h1>법조문은 어렵지만,<br>내 권리는 어렵지 않아야 하니까.</h1>
     <p>근로기준법을 처음 읽었던 날, 솔직히 절반도 이해하지 못했습니다.
     그래서 하나씩 공부하며 정리하기 시작한 것이 이 사이트가 되었습니다.
     쉬운 설명과 정확한 근거 조문·판례를 함께 담으려고 노력합니다.</p>
+    <div class="hero-actions">
+      <a href="support-worker.html" class="btn-primary">💼 2026 정부 지원금 12선 →</a>
+      <a href="ai-labor.html" class="btn-ghost">🤖 AI와 노동법</a>
+    </div>
   </section>
 
   <article>
-    <h2>주제별로 찾아보기</h2>
+
+    <div class="section-heading">
+      <h2>💰 2026 정부 지원금</h2>
+      <span class="section-tag new">NEW</span>
+      <p class="section-desc">근로자와 사업주가 놓치면 안 되는 24가지 지원사업</p>
+    </div>
+    <div class="card-grid">
+      <a href="support-worker.html" class="topic-card accent-blue">
+        <span class="card-icon">💼</span>
+        <h3>정부 지원금 — 근로자 관점</h3>
+        <p>청년일자리도약장려금 근속 인센티브(720만), 국민취업지원(월 60만), 청년미래적금(최대 2,255만) 등 12선.</p>
+        <span class="card-tag tag-new">2026 신설</span>
+      </a>
+      <a href="support-employer.html" class="topic-card accent-orange">
+        <span class="card-icon">🏢</span>
+        <h3>정부 지원금 — 사업주 관점</h3>
+        <p>청년 채용 1,200만원, 정규직전환·대체인력·워라밸·고령자·장애인 고용지원금까지 사업주 12선.</p>
+        <span class="card-tag tag-new">2026 신설</span>
+      </a>
+    </div>
+
+    <div class="section-heading">
+      <h2>🔥 2026 트렌드 이슈</h2>
+      <span class="section-tag hot">HOT</span>
+      <p class="section-desc">지금 가장 뜨거운 노동 이슈</p>
+    </div>
+    <div class="card-grid">
+      <a href="ai-labor.html" class="topic-card accent-purple">
+        <span class="card-icon">🤖</span>
+        <h3>AI와 노동법</h3>
+        <p>AI 채용·근태감시·알고리즘 인사평가·플랫폼노동자 보호. 32개 언어 AI 노동상담 신설.</p>
+        <span class="card-tag tag-trend">트렌드</span>
+      </a>
+      <a href="work-4days.html" class="topic-card accent-pink">
+        <span class="card-icon">📆</span>
+        <h3>주 4.5일제 완전 정리</h3>
+        <p>경기도 시범사업, 국회 입법 흐름, 임금·주휴수당·연장근로 계산, 국내외 도입 사례.</p>
+        <span class="card-tag tag-trend">트렌드</span>
+      </a>
+      <a href="workplace-harassment.html" class="topic-card accent-orange">
+        <span class="card-icon">🚫</span>
+        <h3>직장 내 괴롭힘 & 감정노동</h3>
+        <p>2026 강화된 사업주 조사·조치 의무, 신고 절차, 감정노동자 보호(산안법 제41조).</p>
+        <span class="card-tag tag-trend">트렌드</span>
+      </a>
+    </div>
+
+    <div class="section-heading">
+      <h2>📚 주제별로 찾아보기</h2>
+      <p class="section-desc">근로기준법 8대 영역</p>
+    </div>
     <div class="card-grid">
       <a href="work-hours.html" class="topic-card">
         <span class="card-icon">⏰</span>
@@ -100,7 +159,33 @@
       </a>
     </div>
 
-    <h2>2026년, 이것만은 알아두세요</h2>
+    <div class="section-heading">
+      <h2>📌 2026년, 이것만은 알아두세요</h2>
+      <p class="section-desc">핵심 숫자와 개정사항</p>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat-card">
+        <span class="stat-value">10,320원</span>
+        <span class="stat-label">2026 최저시급</span>
+        <span class="stat-sub">+ 2.9% (전년 대비)</span>
+      </div>
+      <div class="stat-card orange">
+        <span class="stat-value">₩2,156,880</span>
+        <span class="stat-label">최저 월급 (주40h)</span>
+        <span class="stat-sub">주휴수당 포함 209h</span>
+      </div>
+      <div class="stat-card blue">
+        <span class="stat-value">15일</span>
+        <span class="stat-label">1년 만근 연차</span>
+        <span class="stat-sub">3년차부터 2년마다 +1</span>
+      </div>
+      <div class="stat-card purple">
+        <span class="stat-value">30일</span>
+        <span class="stat-label">해고예고 기간</span>
+        <span class="stat-sub">미예고 시 30일분 지급</span>
+      </div>
+    </div>
 
     <div class="box box-easy">
       <span class="box-label">🟢 쉽게 말하면</span>
@@ -127,14 +212,20 @@
       <li><strong>노동절 명칭 변경</strong> — 2026년부터 5월 1일은 '근로자의 날'이 아닌 <strong>'노동절'</strong>입니다. 유급휴일이라는 점은 동일합니다.</li>
       <li><strong>4시간 근무 시 휴게 선택권</strong> — 2026. 12. 10.부터, 딱 4시간만 일하는 경우 근로자가 원하면 휴게 30분 없이 바로 퇴근할 수 있게 됩니다.</li>
       <li><strong>시간 단위 연차</strong> — 2027. 6. 10.부터 연차를 시간 단위로 쪼개 쓸 수 있는 법적 근거가 시행됩니다. (지금도 회사 합의로 반차·반반차는 가능)</li>
-      <li><strong>5인 미만 사업장 적용 확대 논의</strong> — 근로기준법을 5인 미만 사업장에도 단계적으로 전면 적용하는 방안이 추진 중입니다. 확정 시 이 사이트에도 반영하겠습니다.</li>
+      <li><strong>육아휴직 급여 상한 확대</strong> — 첫 3개월 <mark>월 250만원</mark>, 부모 동시사용 시 각각 최대 450만원까지 상향.</li>
+      <li><strong>대체인력지원금 인상</strong> — 30인 미만 사업장은 월 120만 → <mark>월 140만원</mark>.</li>
+      <li><strong>고령자 계속고용장려금 3년 확대</strong> — 정년 이후 재고용 시 최대 1,080만원까지.</li>
+      <li><strong>32개 언어 AI 노동상담</strong> — 고용노동부 2026년 하반기 도입 예정.</li>
+      <li><strong>직장 내 괴롭힘 매뉴얼 개정</strong> — 2026.07.02 새 매뉴얼, 소규모 사업장·제3자 가해 대응 강화.</li>
     </ul>
 
     <p class="author-note">
       ※ 개정 법령은 시행일이 제각각이라 헷갈리기 쉽습니다. 본문 곳곳에 시행일을 함께 적어두었으니 날짜를 꼭 확인하세요. — 운영자
     </p>
 
-    <h2>이 사이트를 읽는 방법</h2>
+    <div class="section-heading">
+      <h2>📖 이 사이트를 읽는 방법</h2>
+    </div>
     <p>모든 해설 페이지는 같은 구조로 되어 있습니다.</p>
     <div class="box box-easy">
       <span class="box-label">🟢 쉽게 말하면</span>
@@ -152,27 +243,34 @@
       <span class="box-label">🟠 사례</span>
       <p>주황 박스는 실제 판례나 상담 사례를 각색한 예시입니다. 추상적인 조문이 현실에서 어떻게 적용되는지 보여줍니다.</p>
     </div>
+    <div class="box box-tip">
+      <span class="box-label">🟣 팁</span>
+      <p>보라 박스는 실무 노하우나 놓치기 쉬운 팁입니다.</p>
+    </div>
 
     <div class="update-log">
       <h4>📌 업데이트 기록</h4>
       <ul>
-        <li><span class="log-date">2026.07.12</span> — 2026년 하반기 시행 예정 개정사항(휴게 선택권 등) 안내 추가, 표 수치 재검토</li>
-        <li><span class="log-date">2026.03.02</span> — 노란봉투법 시행 관련 각주 추가, FAQ 3문항 보강</li>
-        <li><span class="log-date">2026.01.05</span> — 2026년 최저임금(10,320원) 전면 반영, 계산기 기본값 변경</li>
-        <li><span class="log-date">2025.11.20</span> — 사이트 전면 리디자인, 판례 페이지 신설</li>
-        <li><span class="log-date">2025.10.24</span> — 임금체불 제재 강화 개정 반영</li>
-        <li><span class="log-date">2025.08.15</span> — 첫 공개. 근로시간·임금·연차 3개 페이지로 시작</li>
+        <li><span class="log-date">2026.07.12</span> — <strong>대개편 v4</strong>: 정부 지원금(근로자·사업주) 페이지 신설, AI/주4.5일제/직장 괴롭힘 트렌드 3종 추가, 홈 리디자인</li>
+        <li><span class="log-date">2026.07.02</span> — 직장 내 괴롭힘 매뉴얼 개정 반영</li>
+        <li><span class="log-date">2026.06.22</span> — 청년미래적금 출시 반영</li>
+        <li><span class="log-date">2026.01.01</span> — 2026년 최저임금(10,320원), 육아휴직·계속고용 개정 반영</li>
       </ul>
     </div>
-  </article>
 
+  </article>
 </main>
 
 <footer class="site-footer">
-  <p><strong>노동법 다이어리</strong> — 근로기준법을 공부하며 정리하는 개인 사이트입니다. · <a href="privacy.html">개인정보처리방침</a></p>
-  <p>이 사이트의 내용은 일반적인 정보 제공 목적이며 법률 자문이 아닙니다. 구체적인 사안은
-  <a href="https://www.moel.go.kr" target="_blank" rel="noopener">고용노동부</a> 상담센터(국번 없이 1350) 또는 공인노무사·변호사와 상담하세요.</p>
-  <p>법령 원문: <a href="https://www.law.go.kr" target="_blank" rel="noopener">국가법령정보센터</a> · 최종 업데이트 2026. 7. 12.</p>
+  <div class="footer-links">
+    <a href="index.html">홈</a> ·
+    <a href="support-worker.html">근로자 지원금</a> ·
+    <a href="support-employer.html">사업주 지원금</a> ·
+    <a href="ai-labor.html">AI·노동</a> ·
+    <a href="privacy.html">개인정보처리방침</a> ·
+    <a href="mailto:contact@nodonglab.com">문의</a>
+  </div>
+  <div>© 2026 노동법 다이어리 · 본 사이트의 정보는 참고용이며 법률자문을 대체하지 않습니다.</div>
 </footer>
 
 </body>
