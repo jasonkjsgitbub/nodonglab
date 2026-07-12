@@ -3,26 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="연차 개수, 주휴수당, 연장·야간·휴일수당, 퇴직금을 직접 계산해 보는 노동법 계산기. 2026년 최저임금 기준.">
-<title>노동법 계산기 | 노동법 다이어리</title>
+<meta name="description" content="주휴수당·연장수당·연차개수·퇴직금·미사용연차수당을 직접 계산하는 노동법 계산기 대시보드. 2026 최저임금(10,320원) 기준.">
+<title>노동법 계산기 대시보드 | 노동법 다이어리</title>
 <link rel="canonical" href="https://nodonglab.com/calculator.html">
 <meta property="og:type" content="website">
-<meta property="og:title" content="노동법 계산기 | 노동법 다이어리">
-<meta property="og:description" content="연차 개수, 주휴수당, 연장·야간·휴일수당, 퇴직금을 직접 계산해 보는 노동법 계산기. 2026년 최저임금 기준.">
+<meta property="og:title" content="노동법 계산기 대시보드 | 노동법 다이어리">
+<meta property="og:description" content="5개 계산기를 탭으로 골라 사용하는 대시보드. 주휴수당·연장수당·연차·퇴직금·연차수당. 2026 최신 기준.">
 <meta property="og:url" content="https://nodonglab.com/calculator.html">
-<meta property="og:site_name" content="노동법 다이어리">
+<meta property="og:image" content="https://nodonglab.com/img/og-image.webp">
 <link rel="stylesheet" href="css/style.css">
-<!-- ▼ 구글 애드센스 승인 코드 자리 ▼
-     발급받은 ca-pub 번호로 XXXXXXXXXXXXXXXX 를 바꾸고, 이 주석 표시를 지워서 활성화하세요.
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
-     ▲ 애드센스 코드 끝 ▲ -->
-
+<!-- ▼ 구글 애드센스 승인 코드 자리 ▼ -->
 </head>
 <body>
 
 <header class="site-header">
   <div class="header-inner">
     <a href="index.html" class="logo">노동법 다이어리<span class="logo-sub">누구나 이해하는 근로기준법</span></a>
+    <button class="nav-toggle" aria-label="메뉴 열기" onclick="document.querySelector('.main-nav').classList.toggle('open')">☰</button>
     <nav class="main-nav">
       <a href="index.html">홈</a>
       <a href="work-hours.html">근로시간</a>
@@ -30,6 +27,11 @@
       <a href="leave.html">휴가·연차</a>
       <a href="dismissal.html">해고·징계</a>
       <a href="contract.html">근로계약</a>
+      <a href="support-worker.html" class="nav-new">지원금(근로자)</a>
+      <a href="support-employer.html" class="nav-new">지원금(사업주)</a>
+      <a href="ai-labor.html" class="nav-new">AI·노동</a>
+      <a href="work-4days.html">주4.5일</a>
+      <a href="workplace-harassment.html">직장 괴롭힘</a>
       <a href="calculator.html" class="active">계산기</a>
       <a href="faq.html">FAQ</a>
       <a href="cases.html">판례·사례</a>
@@ -37,156 +39,230 @@
   </div>
 </header>
 
-<main class="container narrow">
-  <h1 class="page-title">노동법 계산기</h1>
-  <p class="page-desc">기본값은 2026년 최저시급(10,320원)으로 넣어두었습니다. 본인 시급으로 바꿔서 계산해 보세요.
-  결과는 참고용 개산(槪算)이며, 실제 산정에는 통상임금 범위 등 개별 사정이 반영됩니다.</p>
+<main class="container">
+  <h1 class="page-title">🧮 노동법 계산기 대시보드</h1>
+  <p class="page-desc">기본값은 2026년 최저시급(10,320원)으로 넣어두었습니다. 본인 값으로 바꿔 계산하세요.
+  결과는 참고용 개산이며 실제 산정에는 통상임금 범위 등 개별 사정이 반영됩니다.
+  <strong>모든 계산은 브라우저에서만 처리</strong>되며 서버로 전송되지 않습니다.</p>
 
-  <article>
+  <!-- 대시보드 -->
+  <div class="calc-dashboard">
+    <!-- 좌측 탭 네비 -->
+    <aside class="calc-nav">
+      <h4>계산기 목록</h4>
+      <button class="calc-tab active" data-tab="juhyu"><span class="tab-num">1</span>주휴수당</button>
+      <button class="calc-tab" data-tab="overtime"><span class="tab-num">2</span>연장·야간·휴일수당</button>
+      <button class="calc-tab" data-tab="annual-leave"><span class="tab-num">3</span>연차 개수</button>
+      <button class="calc-tab" data-tab="retire"><span class="tab-num">4</span>퇴직금</button>
+      <button class="calc-tab" data-tab="leave-allowance"><span class="tab-num">5</span>미사용 연차수당</button>
+    </aside>
 
-    <!-- 1. 주휴수당 -->
-    <div class="calc-card">
-      <h3>① 주휴수당 계산기</h3>
-      <p style="font-size:.9rem; color:var(--ink-soft);">주 15시간 이상 + 소정근로일 개근 시 발생합니다. <a href="wages.html#juhyu">해설 보기</a></p>
-      <div class="calc-row">
-        <div class="calc-field">
-          <label for="jh-hours">1주 소정근로시간 (시간)</label>
-          <input type="number" id="jh-hours" value="20" min="0" max="40" step="0.5">
-        </div>
-        <div class="calc-field">
-          <label for="jh-wage">시급 (원)</label>
-          <input type="number" id="jh-wage" value="10320" min="0" step="10">
+    <!-- 우측 계산 패널 -->
+    <section class="calc-content">
+
+      <!-- ① 주휴수당 -->
+      <div class="calc-panel active" id="juhyu">
+        <div class="calc-card">
+          <h3>💵 주휴수당 계산기 <span class="calc-badge">1주 단위</span></h3>
+          <p class="calc-desc">주 15시간 이상 + 소정근로일 개근 시 발생합니다. <a href="wages.html#juhyu">해설 보기</a></p>
+          <div class="calc-row">
+            <div class="calc-field">
+              <label for="jh-hours">1주 소정근로시간 (시간)</label>
+              <input type="number" id="jh-hours" value="20" min="0" max="60" step="0.5">
+            </div>
+            <div class="calc-field">
+              <label for="jh-wage">시급 (원)</label>
+              <input type="number" id="jh-wage" value="10320" min="0" step="10">
+            </div>
+          </div>
+          <button class="calc-btn" onclick="calcJuhyu()">계산하기</button>
+          <div class="calc-result" id="jh-result"></div>
+          <div class="calc-note">공식: (1주 소정근로시간 ÷ 40) × 8시간 × 시급 · 40시간 초과분은 40시간으로 제한 · 주 15시간 미만은 미발생</div>
         </div>
       </div>
-      <button class="calc-btn" onclick="calcJuhyu()">계산하기</button>
-      <div class="calc-result" id="jh-result"></div>
-      <p class="calc-note">공식: (1주 소정근로시간 ÷ 40) × 8 × 시급 · 40시간 초과분은 40시간으로 계산 · 주 15시간 미만은 미발생</p>
-    </div>
 
-    <!-- 2. 연장·야간·휴일수당 -->
-    <div class="calc-card">
-      <h3>② 연장·야간·휴일수당 계산기</h3>
-      <p style="font-size:.9rem; color:var(--ink-soft);">5인 이상 사업장 기준 가산율을 적용합니다. <a href="wages.html#overtime">해설 보기</a></p>
-      <div class="calc-row">
-        <div class="calc-field">
-          <label for="ot-wage">통상시급 (원)</label>
-          <input type="number" id="ot-wage" value="10320" min="0" step="10">
-        </div>
-        <div class="calc-field">
-          <label for="ot-type">근로 유형</label>
-          <select id="ot-type">
-            <option value="1.5">연장근로 (150%)</option>
-            <option value="1.5n">야간근로 (150%)</option>
-            <option value="2.0">연장 + 야간 (200%)</option>
-            <option value="1.5h">휴일근로 8시간 이내 (150%)</option>
-            <option value="2.0h">휴일근로 8시간 초과분 (200%)</option>
-            <option value="2.0hn">휴일(8h이내) + 야간 (200%)</option>
-          </select>
-        </div>
-        <div class="calc-field">
-          <label for="ot-hours">해당 근로시간 (시간)</label>
-          <input type="number" id="ot-hours" value="2" min="0" step="0.5">
+      <!-- ② 연장·야간·휴일수당 -->
+      <div class="calc-panel" id="overtime">
+        <div class="calc-card">
+          <h3>🌙 연장·야간·휴일수당 <span class="calc-badge">5인 이상</span></h3>
+          <p class="calc-desc">5인 이상 사업장 기준 가산율 자동 적용. <a href="wages.html#overtime">해설 보기</a></p>
+          <div class="calc-row">
+            <div class="calc-field">
+              <label for="ot-wage">통상시급 (원)</label>
+              <input type="number" id="ot-wage" value="10320" min="0" step="10">
+            </div>
+            <div class="calc-field">
+              <label for="ot-type">근로 유형</label>
+              <select id="ot-type">
+                <option value="1.5">연장근로 (150%)</option>
+                <option value="1.5n">야간근로 (150%)</option>
+                <option value="2.0">연장 + 야간 (200%)</option>
+                <option value="1.5h">휴일근로 8시간 이내 (150%)</option>
+                <option value="2.0h">휴일근로 8시간 초과분 (200%)</option>
+                <option value="2.0hn">휴일(8h이내) + 야간 (200%)</option>
+              </select>
+            </div>
+            <div class="calc-field">
+              <label for="ot-hours">해당 근로시간 (시간)</label>
+              <input type="number" id="ot-hours" value="2" min="0" step="0.5">
+            </div>
+          </div>
+          <button class="calc-btn" onclick="calcOvertime()">계산하기</button>
+          <div class="calc-result" id="ot-result"></div>
+          <div class="calc-note">4인 이하 사업장은 가산(50%) 없이 100%만 적용됩니다. 가산 사유가 겹치면 각각 합산합니다.</div>
         </div>
       </div>
-      <button class="calc-btn" onclick="calcOvertime()">계산하기</button>
-      <div class="calc-result" id="ot-result"></div>
-      <p class="calc-note">4인 이하 사업장은 가산(50%) 없이 100%만 적용됩니다. 가산 사유가 겹치면 각각 합산합니다.</p>
-    </div>
 
-    <!-- 3. 연차 개수 -->
-    <div class="calc-card">
-      <h3>③ 연차휴가 개수 계산기</h3>
-      <p style="font-size:.9rem; color:var(--ink-soft);">입사일 기준(법정 기준)으로 계산합니다. 회계연도 기준 운영 시 결과가 다를 수 있습니다. <a href="leave.html#basics">해설 보기</a></p>
-      <div class="calc-row">
-        <div class="calc-field">
-          <label for="al-start">입사일</label>
-          <input type="date" id="al-start" value="2024-07-01">
-        </div>
-        <div class="calc-field">
-          <label for="al-base">기준일 (보통 오늘)</label>
-          <input type="date" id="al-base" value="2026-07-12">
+      <!-- ③ 연차 개수 -->
+      <div class="calc-panel" id="annual-leave">
+        <div class="calc-card">
+          <h3>🌴 연차휴가 개수 <span class="calc-badge">입사일 기준</span></h3>
+          <p class="calc-desc">입사일 기준(법정) 계산. 회계연도 기준 운영 시 결과가 다를 수 있습니다. <a href="leave.html#basics">해설 보기</a></p>
+          <div class="calc-row">
+            <div class="calc-field">
+              <label for="al-start">입사일</label>
+              <input type="date" id="al-start" value="2024-07-01">
+            </div>
+            <div class="calc-field">
+              <label for="al-base">기준일 (보통 오늘)</label>
+              <input type="date" id="al-base" value="2026-07-12">
+            </div>
+          </div>
+          <button class="calc-btn" onclick="calcAnnualLeave()">계산하기</button>
+          <div class="calc-result" id="al-result"></div>
+          <div class="calc-note">80% 이상 출근을 전제로 한 계산. 1년 미만 구간의 월 단위 연차(최대 11일)는 개근 전제.</div>
         </div>
       </div>
-      <button class="calc-btn" onclick="calcAnnualLeave()">계산하기</button>
-      <div class="calc-result" id="al-result"></div>
-      <p class="calc-note">80% 이상 출근을 전제로 한 계산입니다. 1년 미만 구간의 월 단위 연차(최대 11일)는 개근을 전제로 합니다.</p>
-    </div>
 
-    <!-- 4. 퇴직금 -->
-    <div class="calc-card">
-      <h3>④ 퇴직금 계산기 (개산)</h3>
-      <p style="font-size:.9rem; color:var(--ink-soft);">1주 15시간 이상, 1년 이상 근무 시 발생합니다(퇴직급여법). DC형 퇴직연금 가입자는 산식이 다릅니다.</p>
-      <div class="calc-row">
-        <div class="calc-field">
-          <label for="rp-start">입사일</label>
-          <input type="date" id="rp-start" value="2023-01-02">
-        </div>
-        <div class="calc-field">
-          <label for="rp-end">퇴직일 (마지막 근무 다음 날)</label>
-          <input type="date" id="rp-end" value="2026-07-01">
-        </div>
-        <div class="calc-field">
-          <label for="rp-salary">퇴직 전 3개월 임금 총액 (원)</label>
-          <input type="number" id="rp-salary" value="9000000" min="0" step="10000">
-        </div>
-      </div>
-      <button class="calc-btn" onclick="calcRetire()">계산하기</button>
-      <div class="calc-result" id="rp-result"></div>
-      <p class="calc-note">공식: 1일 평균임금 × 30일 × (총 재직일수 ÷ 365) · 3개월 총액에는 연간 상여금·연차수당의 3/12을 더해야 정확합니다. 평균임금이 통상임금보다 낮으면 통상임금 적용.</p>
-    </div>
-
-    <!-- 5. 미사용 연차수당 -->
-    <div class="calc-card">
-      <h3>⑤ 미사용 연차수당 계산기</h3>
-      <p style="font-size:.9rem; color:var(--ink-soft);">1일 통상임금 × 미사용 일수. <a href="leave.html#allowance">해설 보기</a></p>
-      <div class="calc-row">
-        <div class="calc-field">
-          <label for="la-salary">월 통상임금 (원)</label>
-          <input type="number" id="la-salary" value="2156880" min="0" step="10000">
-        </div>
-        <div class="calc-field">
-          <label for="la-hours">1일 소정근로시간</label>
-          <input type="number" id="la-hours" value="8" min="1" max="8" step="0.5">
-        </div>
-        <div class="calc-field">
-          <label for="la-days">미사용 연차 일수</label>
-          <input type="number" id="la-days" value="5" min="0" step="0.5">
+      <!-- ④ 퇴직금 -->
+      <div class="calc-panel" id="retire">
+        <div class="calc-card">
+          <h3>🏁 퇴직금 계산기 <span class="calc-badge">1년 이상</span></h3>
+          <p class="calc-desc">1주 15시간 이상, 1년 이상 근무 시 발생(퇴직급여법). DC형 퇴직연금 가입자는 산식이 다릅니다.</p>
+          <div class="calc-row">
+            <div class="calc-field">
+              <label for="rp-start">입사일</label>
+              <input type="date" id="rp-start" value="2023-01-02">
+            </div>
+            <div class="calc-field">
+              <label for="rp-end">퇴직일 (마지막 근무 다음 날)</label>
+              <input type="date" id="rp-end" value="2026-07-01">
+            </div>
+            <div class="calc-field">
+              <label for="rp-salary">퇴직 전 3개월 임금 총액 (원)</label>
+              <input type="number" id="rp-salary" value="9000000" min="0" step="10000">
+            </div>
+          </div>
+          <button class="calc-btn" onclick="calcRetire()">계산하기</button>
+          <div class="calc-result" id="rp-result"></div>
+          <div class="calc-note">공식: 1일 평균임금 × 30일 × (총 재직일수 ÷ 365) · 3개월 총액에는 연간 상여금·연차수당의 3/12을 더해야 정확합니다. 평균임금이 통상임금보다 낮으면 통상임금 적용.</div>
         </div>
       </div>
-      <button class="calc-btn" onclick="calcLeaveAllowance()">계산하기</button>
-      <div class="calc-result" id="la-result"></div>
-      <p class="calc-note">시간급 통상임금 = 월 통상임금 ÷ 209 (주 40시간 기준). 주 40시간 미만 근무자는 유급처리시간에 맞게 환산해야 합니다.</p>
-    </div>
 
-    <p class="author-note">※ 계산기 로직은 전부 이 페이지 안의 자바스크립트로 돌아가고, 입력값은 어디에도 전송되지 않습니다.
-    처음엔 엑셀로 만들어 쓰다가 자꾸 물어보시는 분들이 많아 웹으로 옮겼습니다. 계산이 이상하면 알려주세요 — 세 번이나 버그를 잡아주신 방문자분들 덕에 지금 버전이 됐습니다.</p>
+      <!-- ⑤ 미사용 연차수당 -->
+      <div class="calc-panel" id="leave-allowance">
+        <div class="calc-card">
+          <h3>📅 미사용 연차수당 <span class="calc-badge">통상임금</span></h3>
+          <p class="calc-desc">1일 통상임금 × 미사용 일수. <a href="leave.html#allowance">해설 보기</a></p>
+          <div class="calc-row">
+            <div class="calc-field">
+              <label for="la-salary">월 통상임금 (원)</label>
+              <input type="number" id="la-salary" value="2156880" min="0" step="10000">
+            </div>
+            <div class="calc-field">
+              <label for="la-hours">1일 소정근로시간</label>
+              <input type="number" id="la-hours" value="8" min="1" max="8" step="0.5">
+            </div>
+            <div class="calc-field">
+              <label for="la-days">미사용 연차 일수</label>
+              <input type="number" id="la-days" value="5" min="0" step="0.5">
+            </div>
+          </div>
+          <button class="calc-btn" onclick="calcLeaveAllowance()">계산하기</button>
+          <div class="calc-result" id="la-result"></div>
+          <div class="calc-note">시간급 통상임금 = 월 통상임금 ÷ 209 (주 40시간 기준). 주 40시간 미만 근무자는 유급처리시간에 맞게 환산해야 합니다.</div>
+        </div>
+      </div>
 
-    <div class="update-log">
-      <h4>📌 이 페이지의 수정 이력</h4>
-      <ul>
-        <li><span class="log-date">2026.07.12</span> — 퇴직금 계산기의 윤년 처리 보완 (365.25 → 실제 일수 기반)</li>
-        <li><span class="log-date">2026.01.05</span> — 기본 시급 10,320원으로 변경</li>
-        <li><span class="log-date">2025.12.10</span> — 연차 계산기: 3년차 가산 로직 오류 수정 (제보 감사합니다)</li>
-        <li><span class="log-date">2025.09.05</span> — 최초 공개 (주휴수당·연장수당 2종으로 시작)</li>
-      </ul>
-    </div>
+    </section>
+  </div>
 
-    <nav class="page-nav">
-      <a href="contract.html">← 이전: 근로계약</a>
-      <a href="faq.html">다음: FAQ →</a>
-    </nav>
+  <p class="author-note">
+    ※ 계산기 로직은 전부 이 페이지 안의 자바스크립트로 돌아가고, 입력값은 어디에도 전송되지 않습니다.
+    처음엔 엑셀로 만들어 쓰다가 자꾸 물어보시는 분들이 많아 웹으로 옮겼습니다.
+    계산이 이상하면 알려주세요 — 세 번이나 버그를 잡아주신 방문자분들 덕에 지금 버전이 됐습니다.
+  </p>
 
-  </article>
+  <div class="update-log">
+    <h4>📌 이 페이지의 수정 이력</h4>
+    <ul>
+      <li><span class="log-date">2026.07.12</span> — <strong>v5 리디자인</strong>: 탭 대시보드 UI로 전면 개편, 홈에서 각 계산기 딥링크</li>
+      <li><span class="log-date">2026.07.11</span> — 퇴직금 계산기 윤년 처리 보완</li>
+      <li><span class="log-date">2026.01.05</span> — 기본 시급 10,320원으로 변경</li>
+      <li><span class="log-date">2025.12.10</span> — 연차 계산기: 3년차 가산 로직 오류 수정 (제보 감사합니다)</li>
+      <li><span class="log-date">2025.09.05</span> — 최초 공개 (주휴수당·연장수당 2종으로 시작)</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="wages.html">← <small>이전</small>임금과 각종 수당</a>
+    <a href="faq.html"><small>다음 →</small>자주 묻는 질문</a>
+  </div>
 </main>
 
 <footer class="site-footer">
-  <p><strong>노동법 다이어리</strong> — 근로기준법을 공부하며 정리하는 개인 사이트입니다. · <a href="privacy.html">개인정보처리방침</a></p>
-  <p>계산 결과는 참고용이며 법적 효력이 없습니다. 정확한 산정은
-  <a href="https://www.moel.go.kr" target="_blank" rel="noopener">고용노동부</a>(1350) 또는 공인노무사와 상담하세요.</p>
-  <p>법령 원문: <a href="https://www.law.go.kr" target="_blank" rel="noopener">국가법령정보센터</a> · 최종 업데이트 2026. 7. 12.</p>
+  <div class="footer-links">
+    <a href="index.html">홈</a> ·
+    <a href="support-worker.html">근로자 지원금</a> ·
+    <a href="support-employer.html">사업주 지원금</a> ·
+    <a href="privacy.html">개인정보처리방침</a> ·
+    <a href="mailto:contact@nodonglab.com">문의</a>
+  </div>
+  <div>© 2026 노동법 다이어리 · 계산 결과는 참고용이며 법적 효력이 없습니다. 정확한 산정은 <a href="https://www.moel.go.kr" target="_blank" rel="noopener">고용노동부</a>(1350) 또는 공인노무사와 상담하세요.</div>
 </footer>
 
 <script>
+/* ============================================
+   탭 전환 로직 (URL 해시 지원)
+   ============================================ */
+(function(){
+  const tabs = document.querySelectorAll('.calc-tab');
+  const panels = document.querySelectorAll('.calc-panel');
+
+  function activate(tabId){
+    tabs.forEach(t => t.classList.toggle('active', t.dataset.tab === tabId));
+    panels.forEach(p => p.classList.toggle('active', p.id === tabId));
+    // URL 해시 업데이트 (스크롤 없이)
+    if (history.replaceState) {
+      history.replaceState(null, '', '#' + tabId);
+    }
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => activate(tab.dataset.tab));
+  });
+
+  // 페이지 로드 시 URL 해시로 초기 탭 선택 (홈에서 딥링크로 들어온 경우)
+  const initial = window.location.hash.replace('#', '');
+  const valid = ['juhyu','overtime','annual-leave','retire','leave-allowance'];
+  if (initial && valid.includes(initial)) {
+    activate(initial);
+    // 살짝 스크롤해서 대시보드가 화면에 오게
+    setTimeout(() => {
+      document.querySelector('.calc-dashboard').scrollIntoView({behavior:'smooth', block:'start'});
+    }, 100);
+  }
+
+  // 뒤로가기/앞으로가기 지원
+  window.addEventListener('hashchange', () => {
+    const h = window.location.hash.replace('#', '');
+    if (h && valid.includes(h)) activate(h);
+  });
+})();
+
+/* ============================================
+   계산 함수들
+   ============================================ */
 function won(n) { return Math.round(n).toLocaleString('ko-KR') + '원'; }
 function show(id, html) {
   var el = document.getElementById(id);
@@ -208,7 +284,7 @@ function calcJuhyu() {
   show('jh-result',
     '1주 주휴수당: <span class="big">' + won(pay) + '</span><br>' +
     '월 환산(4.345주): 약 ' + won(monthly) +
-    '<br><small>계산: (' + capped + ' ÷ 40) × 8시간 × ' + w.toLocaleString('ko-KR') + '원</small>');
+    '<div class="calc-note">계산: (' + capped + ' ÷ 40) × 8시간 × ' + w.toLocaleString('ko-KR') + '원</div>');
 }
 
 /* ② 연장·야간·휴일수당 */
@@ -216,16 +292,16 @@ function calcOvertime() {
   var w = parseFloat(document.getElementById('ot-wage').value) || 0;
   var t = document.getElementById('ot-type').value;
   var h = parseFloat(document.getElementById('ot-hours').value) || 0;
-  var rate = parseFloat(t); // "1.5h" -> 1.5
+  var rate = parseFloat(t);
   var total = w * rate * h;
   var extra = w * (rate - 1) * h;
   show('ot-result',
     '해당 시간 임금 합계: <span class="big">' + won(total) + '</span><br>' +
     '이 중 가산분(기본 100% 초과분): ' + won(extra) +
-    '<br><small>' + w.toLocaleString('ko-KR') + '원 × ' + (rate * 100) + '% × ' + h + '시간 · 5인 이상 사업장 기준</small>');
+    '<div class="calc-note">' + w.toLocaleString('ko-KR') + '원 × ' + (rate * 100) + '% × ' + h + '시간 · 5인 이상 사업장 기준</div>');
 }
 
-/* ③ 연차 개수 (입사일 기준) */
+/* ③ 연차 개수 */
 function calcAnnualLeave() {
   var s = new Date(document.getElementById('al-start').value);
   var b = new Date(document.getElementById('al-base').value);
@@ -233,27 +309,24 @@ function calcAnnualLeave() {
     show('al-result', '날짜를 확인해 주세요. 기준일이 입사일보다 뒤여야 합니다.');
     return;
   }
-  // 만 근속연수
   var years = b.getFullYear() - s.getFullYear();
   var anniv = new Date(s); anniv.setFullYear(s.getFullYear() + years);
   if (anniv > b) { years--; }
 
   var html = '';
   if (years < 1) {
-    // 1년 미만: 개근 월당 1일 (최대 11)
     var months = (b.getFullYear() - s.getFullYear()) * 12 + (b.getMonth() - s.getMonth());
     var mAnniv = new Date(s); mAnniv.setMonth(s.getMonth() + months);
     if (mAnniv > b) months--;
     var days = Math.max(0, Math.min(months, 11));
     html = '근속 1년 미만 — 현재까지 발생한 월 단위 연차: <span class="big">' + days + '일</span>' +
-      '<br><small>1개월 개근마다 1일씩, 최대 11일. 입사일로부터 1년 안에 사용해야 합니다.</small>';
+      '<div class="calc-note">1개월 개근마다 1일씩, 최대 11일. 입사일로부터 1년 안에 사용해야 합니다.</div>';
   } else {
-    // 1년 이상: 15 + (years-1)/2 가산, 최대 25
     var annual = Math.min(25, 15 + Math.floor((years - 1) / 2));
     html = '만 ' + years + '년 근속 — 최근 연차 발생분: <span class="big">' + annual + '일</span>' +
-      '<br><small>15일 + 가산 ' + (annual - 15) + '일 (3년차부터 2년마다 +1일, 최대 25일) · 직전 1년 80% 이상 출근 전제</small>';
+      '<div class="calc-note">15일 + 가산 ' + (annual - 15) + '일 (3년차부터 2년마다 +1일, 최대 25일) · 직전 1년 80% 이상 출근 전제</div>';
     if (years === 1) {
-      html += '<br><small>참고: 1년차에 발생한 월 단위 연차(최대 11일)는 별도입니다. 1년+1일 재직 시 총 26일까지 가능합니다.</small>';
+      html += '<div class="calc-note">참고: 1년차에 발생한 월 단위 연차(최대 11일)는 별도입니다. 1년+1일 재직 시 총 26일까지 가능.</div>';
     }
   }
   show('al-result', html);
@@ -268,12 +341,11 @@ function calcRetire() {
     show('rp-result', '날짜를 확인해 주세요.');
     return;
   }
-  var days = Math.round((e - s) / 86400000); // 재직일수
+  var days = Math.round((e - s) / 86400000);
   if (days < 365) {
     show('rp-result', '재직 기간이 <strong>1년 미만</strong>이면 법정 퇴직금이 발생하지 않습니다. (현재 ' + days + '일)');
     return;
   }
-  // 퇴직 전 3개월 일수
   var threeMonthsAgo = new Date(e); threeMonthsAgo.setMonth(e.getMonth() - 3);
   var period = Math.round((e - threeMonthsAgo) / 86400000);
   var avgDaily = pay3m / period;
@@ -281,7 +353,7 @@ function calcRetire() {
   show('rp-result',
     '예상 퇴직금: <span class="big">' + won(severance) + '</span><br>' +
     '1일 평균임금: ' + won(avgDaily) + ' (3개월 ' + period + '일 기준) · 재직일수 ' + days + '일' +
-    '<br><small>연간 상여금·연차수당이 있다면 3/12을 3개월 총액에 더한 뒤 다시 계산하세요. 세전 금액입니다.</small>');
+    '<div class="calc-note">연간 상여금·연차수당이 있다면 3/12을 3개월 총액에 더한 뒤 다시 계산하세요. 세전 금액입니다.</div>');
 }
 
 /* ⑤ 미사용 연차수당 */
@@ -295,7 +367,7 @@ function calcLeaveAllowance() {
   show('la-result',
     '미사용 연차수당: <span class="big">' + won(total) + '</span><br>' +
     '시간급 통상임금 ' + won(hourly) + ' × 1일 ' + h + '시간 = 1일 ' + won(daily) + ' × ' + d + '일' +
-    '<br><small>주 40시간(월 209시간) 근무 기준. 세전 금액입니다.</small>');
+    '<div class="calc-note">주 40시간(월 209시간) 근무 기준. 세전 금액입니다.</div>');
 }
 </script>
 
